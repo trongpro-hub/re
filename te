@@ -1,7 +1,7 @@
 getgenv().Team = "Pirate"
 getgenv().Start = false
 
-if getgenv().Team == "" then
+if getgenv().Team == "Marines" then
     getgenv().Team = "Pirate"
 end
 
