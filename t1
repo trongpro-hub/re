@@ -8688,6 +8688,13 @@ if World3 then
             end
         end)
     end)
+
+    RaceV4:Button("tele đến npc", function()
+        Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12463.6025390625, 375.4897155761719, -7566.0830078125)
+        wait(1)
+        Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-5357.1875, 314.0587158203125, -2494.434814453125)
+    end)
+
     RaceV4:Toggle("Teleport To Mirage Island", _G.AutoMysticIsland, "Tween To Mirage Island", function(value)
         _G.AutoMysticIsland = value
         StopTween(_G.AutoMysticIsland)
