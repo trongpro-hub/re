@@ -10922,17 +10922,17 @@ task.spawn(function()
     while task.wait() do
         pcall(function()
             if game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709149431" then
-                FM:Set("Moon 100%")
+                FM:Set("ðŸŒ• Full Moon 100%")
             elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709149052" then
-                FM:Set("Moon 75%")
+                FM:Set("ðŸŒ– Full Moon 75%")
             elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709143733" then
-                FM:Set("Moon 50%")
+                FM:Set("ðŸŒ— Full Moon 50%")
             elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709150401" then
-                FM:Set("Moon 25%")
+                FM:Set("ðŸŒ˜ Full Moon 25%")
             elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709149680" then
-                FM:Set("Moon 15%")
+                FM:Set("ðŸŒ˜ Full Moon 15%")
             else
-                FM:Set("đợi tối")
+                FM:Set("Wait For Moon")
             end
         end)
     end
@@ -10945,7 +10945,42 @@ spawn(function()
                 MirageStatus:Set('Mirage Island is Spawning')
             else
                 MirageStatus:Set('Mirage Island Not Spawn')
-            end))
+            end
+            
+            if game.Workspace._WorldOrigin.Locations:FindFirstChild('Kitsune Island') then
+                KitsuneStatus:Set('Kitsune Island is Spawning')
+            else
+                KitsuneStatus:Set('Kitsune Island Not Spawn')
+            end
+            
+            for i, v in pairs(game.Workspace:GetChildren()) do
+                if string.find(v.Name, "Fruit") then
+                    FindFruit:Set('ðŸ Find ' .. v.Name)
+                else
+                    FindFruit:Set('ðŸ Nothing')
+                end
+            end
+        end
+    end)
+end)
+
+spawn(function()
+    while wait(5) do
+        pcall(function()
+            if GetLegendarySwordDealer() then
+                SwordDealer:Set('Legendary Sword Dealer is Spawning')
+            else
+                SwordDealer:Set('Legendary Sword Dealer Not Spawn')
+            end
+            
+            if game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1") then
+                HakiDealer:Set('Haki Dealer is Spawning')
+            else
+                HakiDealer:Set('ðŸ”´ Haki Dealer Not Spawn')
+            end
+        end)
+    end
+end)
 
 function GetLegendarySwordDealer()
     if game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1") or game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "2") or game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "3") then
@@ -10953,6 +10988,34 @@ function GetLegendarySwordDealer()
     end
     return false
 end
+
+
+RaceV4:Button("Rejoin Server", function()
+    game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+end)
+
+RaceV4:Button("Server Hop", function()
+    while wait() do
+        local module = loadstring(game:HttpGet "https://roblox.relzscript.xyz/Hop.lua")()
+        module:Teleport(game.PlaceId, "Singapore")
+    end
+end)
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            JobAiDee:Set("Server Job ID : " .. game.JobId)
+        end)
+    end
+end)
+
+RaceV4:Line()
+
+JobAiDee = RaceV4:Label("Server Job ID : ")
+
+RaceV4:Button("Copy Server Job ID", function()
+    setclipboard(tostring(game.JobId))
+end)
 
 RaceV4:Textbox("Enter Server Job ID", true, function(value)
     _G.Job = value
@@ -10966,6 +11029,8 @@ RaceV4:Seperator("Status")
 
 FM = RaceV4:Label("Moon")
 MirageStatus = RaceV4:Label("Mirage")
+
+SRaceV4:Seperator("Advance Fruit Stock")
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Remotes = ReplicatedStorage.Remotes
@@ -10990,5 +11055,3 @@ for _, fruitData in pairs(result) do
         Serv:Label(tostring(fruitInfo))
     end
 end
-
-Alert:create("Done Loaded!")
