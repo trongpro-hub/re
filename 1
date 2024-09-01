@@ -8609,7 +8609,7 @@ if World3 then
     RaceV4:Button("bỏ sương mù",function()
             game:GetService("Lighting").LightingLayers:Destroy()
             game:GetService("Lighting").Sky:Destroy()
-          end)
+    end)
 
     RaceV4:Toggle("bay đến đảo bí ẩn", _G.AutoMysticIsland, "Tween To Mirage Island", function(value)
         _G.AutoMysticIsland = value
@@ -8748,6 +8748,5 @@ for _, fruitData in pairs(result) do
         Serv:Label(tostring(fruitInfo))
     end
 end
-
 
 Alert:create("Done Loaded!")
