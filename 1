@@ -2049,7 +2049,6 @@ spawn(function()
     end)
 end)
 
-
 function InstancePos(pos)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
 end
@@ -10917,7 +10916,7 @@ spawn(function()
     end)
 end)
 
-Serv:Seperator("Server")
+RaceV4:Seperator("Server")
 
 task.spawn(function()
     while task.wait() do
@@ -10991,11 +10990,11 @@ function GetLegendarySwordDealer()
 end
 
 
-Serv:Button("Rejoin Server", function()
+RaceV4:Button("Rejoin Server", function()
     game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
 end)
 
-Serv:Button("Server Hop", function()
+RaceV4:Button("Server Hop", function()
     while wait() do
         local module = loadstring(game:HttpGet "https://roblox.relzscript.xyz/Hop.lua")()
         module:Teleport(game.PlaceId, "Singapore")
@@ -11010,32 +11009,28 @@ spawn(function()
     end
 end)
 
-Serv:Line()
+RaceV4:Line()
 
-JobAiDee = Serv:Label("Server Job ID : ")
+JobAiDee = RaceV4:Label("Server Job ID : ")
 
-Serv:Button("Copy Server Job ID", function()
+RaceV4:Button("Copy Server Job ID", function()
     setclipboard(tostring(game.JobId))
 end)
 
-Serv:Textbox("Enter Server Job ID", true, function(value)
+RaceV4:Textbox("Enter Server Job ID", true, function(value)
     _G.Job = value
 end)
 
-Serv:Button("Join Sever", function()
+RaceV4:Button("Join Sever", function()
     game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId, _G.Job, game.Players.LocalPlayer)
 end)
 
-Serv:Seperator("Status")
+RaceV4:Seperator("Status")
 
-FM = Serv:Label("Moon")
-MirageStatus = Serv:Label("Mirage")
-KitsuneStatus = Serv:Label("Kitsune")
-SwordDealer = Serv:Label("Legendary Sword Dealer")
-HakiDealer = Serv:Label("Haki Dealer")
-FindFruit = Serv:Label("Devil Fruit")
+FM = RaceV4:Label("Moon")
+MirageStatus = RaceV4:Label("Mirage")
 
-Serv:Seperator("Advance Fruit Stock")
+SRaceV4:Seperator("Advance Fruit Stock")
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Remotes = ReplicatedStorage.Remotes
@@ -11060,6 +11055,4 @@ for _, fruitData in pairs(result) do
         Serv:Label(tostring(fruitInfo))
     end
 end
-
-
 Alert:create("Done Loaded!")
