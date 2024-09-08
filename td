@@ -2365,8 +2365,8 @@ spawn(function()
 end)
 
 Main:Toggle("Auto Kill Dough King", _G.Autodoughking, false, function(value)
-    _G.Autodoughking = value
     Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2145.539306640625, 69.16679382324219,-12406.0576171875)
+    _G.Autodoughking = value
     StopTween(_G.Autodoughking)
 end)
 
