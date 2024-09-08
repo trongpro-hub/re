@@ -2331,17 +2331,18 @@ spawn(function()
 end)
 
 Main:Toggle("Auto Kill Cake Prince", _G.AutoCakePrince, false, function(value)
+    Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2145.539306640625, 69.16679382324219,-12406.0576171875)
     _G.AutoCakePrince = value
     StopTween(_G.AutoCakePrince)
 end)
 
 spawn(function()
     while wait() do
-        if _G.AutoCakePrince and World3 then
+        if _G.Autodoughking and World3 then
             pcall(function()
-                if game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
+                if game:GetService("Workspace").Enemies:FindFirstChild("Dough King") then
                     for i, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                        if v.Name == "Cake Prince" then
+                        if v.Name == "Dough King" then
                             if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 repeat task.wait(_G.FastAttackDelay)
                                     AutoHaki()
@@ -2352,12 +2353,10 @@ spawn(function()
                                     topos(v.HumanoidRootPart.CFrame * Pos)
                                     AttackNoCD()
                                 -- sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
-                                until not _G.AutoCakePrince or not v.Parent or v.Humanoid.Health <= 0
+                                until not _G.Autodoughking or not v.Parent or v.Humanoid.Health <= 0
                             end
                         end
                     end
-                else
-                    UnEquipWeapon(_G.SelectWeapon)
                 end
             end)
         end
@@ -10982,11 +10981,11 @@ function GetLegendarySwordDealer()
 end
 
 
-Serv:Button("Rejoin Server", function()
+Misc:Button("Rejoin Server", function()
     game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
 end)
 
-Serv:Button("Server Hop", function()
+Misc:Button("Server Hop", function()
     while wait() do
         local module = loadstring(game:HttpGet "https://roblox.relzscript.xyz/Hop.lua")()
         module:Teleport(game.PlaceId, "Singapore")
@@ -11001,19 +11000,19 @@ spawn(function()
     end
 end)
 
-Serv:Line()
+Misc:Line()
 
 JobAiDee = Serv:Label("Server Job ID : ")
 
-Serv:Button("Copy Server Job ID", function()
+Misc:Button("Copy Server Job ID", function()
     setclipboard(tostring(game.JobId))
 end)
 
-Serv:Textbox("Enter Server Job ID", true, function(value)
+Misc:Textbox("Enter Server Job ID", true, function(value)
     _G.Job = value
 end)
 
-Serv:Button("Join Sever", function()
+Misc:Button("Join Sever", function()
     game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId, _G.Job, game.Players.LocalPlayer)
 end)
 
