@@ -2186,14 +2186,14 @@ end)
 
 Main:Label("Script By trong.dev")
 Main:Button("Copy Discord Link", function()
-    setclipboard("https://discord.gg/MEkBJ95hDy")
+    setclipboard("https://discord.gg/veAMUayQPg")
 end)
-
 
 Main:Seperator("concac")
 
 Main:Toggle("Auto Kill Rip_Indra", _G.AutoDarkDagger, false, function(value)
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-5079.44677734375, 313.7293395996094, -3151.065185546875))
+    Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-4975.50146484375, 314.5084228515625, -3014.183837890625)
     _G.AutoDarkDagger = value
     StopTween(_G.AutoDarkDagger)
 end)
@@ -2240,7 +2240,6 @@ Main:Toggle("Auto Farm Cake Prince", _G.AutoDoughtBoss, "Auto Farm + Kill Cake P
     _G.AutoDoughtBoss = value
     StopTween(_G.AutoDoughtBoss)
 end)
-
 
 local CakePos = CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375)
 spawn(function()
@@ -2367,7 +2366,6 @@ end)
 
 Main:Toggle("Auto Kill Dough King", _G.Autodoughking, false, function(value)
     _G.Autodoughking = value
-    Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2145.539306640625, 69.16679382324219,-12406.0576171875)
     Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2145.539306640625, 69.16679382324219,-12406.0576171875)
     StopTween(_G.Autodoughking)
 end)
